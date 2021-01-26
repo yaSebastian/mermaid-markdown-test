@@ -42,7 +42,7 @@ jobs:
         echo ${{ steps.mermaid-compile.outputs.new-files }}
         echo "::endgroup::"
         echo "::group::All Files"
-        echo ${{ ${{ steps.mermaid-compile.outputs.all-files }}
+        echo ${{ steps.mermaid-compile.outputs.all-files }}
         echo "::endgroup::"
 
     - name: show changes
