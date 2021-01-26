@@ -1,6 +1,7 @@
 # Test this out
 
 Here is an inline mermaid file
+Action Trigger Test
 
 ```mermaid
 graph TD;
