@@ -35,6 +35,7 @@ jobs:
         HIDE_CODEBLOCKS: 1
         ABSOLUTE_IMAGE_LINKS: 1
 
+
     - name: compiled .png files
       run: |
         echo "::group::New Files"
