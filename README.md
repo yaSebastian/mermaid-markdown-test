@@ -1,6 +1,6 @@
 # mermaid-markdown-test
 
-![Compile Mermaid](https://github.com/neenjaw/mermaid-markdown-test/workflows/Compile%20Mermaid/badge.svg)
+![Compile Mermaid in Markdown](https://github.com/yaSebastian/mermaid-markdown-test/workflows/Compile%20Mermaid%20in%20Markdown/badge.svg)
 
 This is an example repository which shows off the action [Compile Mermaid Markdown](https://github.com/neenjaw/compile-mermaid-markdown-action) ([Marketplace](https://github.com/marketplace/actions/compile-mermaid-markdown)).
 
