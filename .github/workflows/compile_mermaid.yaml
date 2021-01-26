@@ -38,10 +38,10 @@ jobs:
     - name: compiled .png files
       run: |
         echo "::group::New Files"
-        printf ${{ steps.mermaid-compile.outputs.new-files }}
+        printf '%s' "${{ steps.mermaid-compile.outputs.new-files }}"
         echo "::endgroup::"
         echo "::group::All Files"
-        printf ${{ steps.mermaid-compile.outputs.all-files }}
+        printf '%s' "${{ steps.mermaid-compile.outputs.all-files }}"
         echo "::endgroup::"
 
     - name: show changes
