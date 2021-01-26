@@ -50,7 +50,7 @@ jobs:
 
     - name: Git track new files
       run: |
-        files = '${{ steps.mermaid-compile.outputs.new-files }}' \
+        files='${{ steps.mermaid-compile.outputs.new-files }}' \
         IFS='\n' \
         for file in $files \
         do \
