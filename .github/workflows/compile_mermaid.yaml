@@ -38,10 +38,10 @@ jobs:
     - name: compiled .png files
       run: |
         echo "::group::New Files"
-        echo ${{ steps.mermaid-compile.outputs.new-files }}
+        printf ${{ steps.mermaid-compile.outputs.new-files }}
         echo "::endgroup::"
         echo "::group::All Files"
-        echo ${{ steps.mermaid-compile.outputs.all-files }}
+        printf ${{ steps.mermaid-compile.outputs.all-files }}
         echo "::endgroup::"
 
     - name: show changes
@@ -49,14 +49,14 @@ jobs:
         git status
 
     - name: Git track new files
+        env:
+          NEW_FILES: ${{ steps.mermaid-compile.outputs.new-files }}
       run: |
-        files='${{ steps.mermaid-compile.outputs.new-files }}' \
         IFS='\n' \
-        for file in $files \
-        do \
+        for file in "$NEW_FILES"; do \
           git add $file \
         done
-
+      
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
