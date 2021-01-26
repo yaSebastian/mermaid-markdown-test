@@ -27,7 +27,7 @@ jobs:
 
     - name: compile mermaid
       id: mermaid-compile
-      uses: neenjaw/compile-mermaid-markdown-action@0.2.3
+      uses: yaSebastian/compile-mermaid-markdown-action@master
       with:
         files: ${{ steps.getfile.outputs.files }}
         output: '.resources'
