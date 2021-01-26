@@ -49,8 +49,8 @@ jobs:
         git status
 
     - name: Git track new files
-        env:
-          NEW_FILES: ${{ steps.mermaid-compile.outputs.new-files }}
+      env:
+        NEW_FILES: ${{ steps.mermaid-compile.outputs.new-files }}
       run: |
         IFS='\n' \
         for file in "$NEW_FILES"; do \
