@@ -26,6 +26,7 @@ jobs:
         echo ${{ steps.getfile.outputs.files }}
 
     - name: compile mermaid
+      id: mermaid-compile
       uses: neenjaw/compile-mermaid-markdown-action@0.2.3
       with:
         files: ${{ steps.getfile.outputs.files }}
@@ -34,14 +35,32 @@ jobs:
         HIDE_CODEBLOCKS: 1
         ABSOLUTE_IMAGE_LINKS: 1
 
+    - name: compiled .png files
+      run: |
+        echo "::group::New Files"
+        echo ${{ steps.mermaid-compile.outputs.new-files }}
+        echo "::endgroup::"
+        echo "::group::All Files"
+        echo ${{ steps.mermaid-compile.outputs.all-files }}
+        echo "::endgroup::"
+
     - name: show changes
       run: |
         git status
 
+    - name: Git track new files
+      run: |
+        files = '${{ steps.mermaid-compile.outputs.new-files }}' \
+        IFS='\n' \
+        for file in $files \
+        do \
+          git add $file \
+        done
+
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.name "GitHub Action"        
         git commit -m "Add changes" -a
 
     - name: Push changes
