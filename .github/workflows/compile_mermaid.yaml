@@ -53,10 +53,7 @@ jobs:
       env:
         NEW_FILES: ${{ steps.mermaid-compile.outputs.new-files }}
       run: |
-        IFS='\n' \
-        for file in "$NEW_FILES"; do \
-          git add $file \
-        done
+        "$NEW_FILES" | while IFS= read -r file ; do git add $file; done
       
     - name: Commit files
       run: |
